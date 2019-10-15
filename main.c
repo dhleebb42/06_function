@@ -3,38 +3,40 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int sumTwo( int a, int b)
+int factorial(int n)
 {
-	int output;
-	output = a+b;
-	return output;
+	int res=1;
+	int i;
+	for(i=1; i<=n; i++)
+	{
+		res = res * i;
+	}
+	
+	return res;
 }
 
-int square(int n)
+int calcCombination(int n, int r)
 {
-	return n*n;
-}
+	int high, low;
 	
-int get_max(int a, int b)
-{
-	if(a>b) return (a);
-	else return (b);
+	high = factorial(n);
+	low = factorial(n-r)*factorial(r);	
 	
+	return (high/low);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char*argv[]) {
 	
-	int x, y;
-	int output;
+	int n;
+	int r;
+	int res;
 	
-	x=2;
-	y=5;
+	printf("input n and r");
+	scanf("%d %d", &n, &r);
 	
-	output = sumTwo(x,y);
-	printf("sumTwo : %i\n",output);
-	printf("square : %i\n", square(x));
-	output = get_max(x,y);
-	printf("get_max : %i\n", output);
+	res = calcCombination(n, r);
+	printf("combination result is %d\n", res);
 	
 	return 0;
 }
+
